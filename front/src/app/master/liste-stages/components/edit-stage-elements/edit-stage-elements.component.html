@@ -1,0 +1,122 @@
+<div class="dialog" dir="rtl">
+  <h1 mat-dialog-title>تعديل معلومات المستعمل</h1>
+  <div mat-dialog-content>
+    <h2>يرجى تعمير الفراغات</h2>
+
+    <div class="updateFormulaire-stage">
+      <form class="form" [formGroup]="updateFormulaire">
+        <mat-form-field [hideRequiredMarker]="true" class="input input-medium">
+          <mat-label>المعهد/ الكلية</mat-label>
+          <input matInput formControlName="institutArabe" />
+        </mat-form-field>
+
+        <mat-form-field [hideRequiredMarker]="true" class="input input-medium">
+          <mat-label>الإختصاص</mat-label>
+          <input matInput formControlName="specialiteArabe" />
+        </mat-form-field>
+
+        <mat-form-field [hideRequiredMarker]="true" class="input input-medium">
+          <mat-label>نوع المؤسسة</mat-label>
+          <mat-select formControlName="typeInstitut">
+            <mat-option value="مؤسسة عامة">مؤسسة عامة</mat-option>
+            <mat-option value="مؤسسة خاصة">مؤسسة خاصة</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- 
+              <mat-error *ngIf="selected.hasError('required')">You must make a selection</mat-error>
+              <mat-error *ngIf="selected.hasError('pattern') && !selected.hasError('required')">
+                Your selection is invalid
+              </mat-error> -->
+
+        <br />
+        <mat-form-field [hideRequiredMarker]="true" class="input input-large">
+          <mat-label>Faculté/ Institut</mat-label>
+          <input matInput formControlName="institutFr" />
+        </mat-form-field>
+        <mat-form-field [hideRequiredMarker]="true" class="input input-large">
+          <mat-label>Spécialité</mat-label>
+          <input matInput formControlName="specialiteFr" />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field [hideRequiredMarker]="true" class="input input-large">
+          <mat-label>Objet/ موضوع التربص</mat-label>
+          <input matInput formControlName="objet" />
+        </mat-form-field>
+        <!-- 
+              <mat-form-field [hideRequiredMarker]="true" [hideRequiredMarker]="true" class="input">
+                <mat-label>نوع التربص</mat-label>
+                <input matInput formControlName="typeStage" />
+              </mat-form-field> -->
+
+        <mat-form-field [hideRequiredMarker]="true" class="input input-large">
+          <mat-label>نوع التربص</mat-label>
+          <mat-select formControlName="typeStage">
+            <mat-option value="Stage Ouvrier">
+              تربص عامل (Stage Ouvrier)</mat-option
+            >
+            <mat-option value="Stage Perfectionnement">
+              تربص تحسيني (Stage Perfectionnement)</mat-option
+            >
+            <mat-option value="Stage niveau Mastere">
+              تربص مستوى ماجيستير(Stage niveau Mastere)</mat-option
+            >
+            <mat-option value="Stage en Cycle d'Ingénieur">
+              تربص مستوى هندسة (Stage niveau Cycle d'Ingenieur)</mat-option
+            >
+            <mat-option value="Projet de Fin d'Etudes">
+              مشروع ختم الدروس (Projet de Fin d'Etudes)</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+
+        <br />
+        <mat-form-field [hideRequiredMarker]="true" class="input input-large">
+          <mat-label>مقر التربص</mat-label>
+          <mat-select formControlName="lieuStage">
+            <mat-option
+            *ngFor="let lieu of lieuStageListe"
+            [value]="lieu.id">{{ lieu.adresse }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="input input-large">
+          <mat-label>مدة التربص</mat-label>
+          <mat-date-range-input [rangePicker]="picker1">
+            <input
+              matStartDate
+              placeholder="تاريخ البداية المفترض"
+              formControlName="dateDebut"
+            />
+            <input
+              matEndDate
+              placeholder="تاريخ النهاية المفترض"
+              formControlName="dateFin"
+            />
+          </mat-date-range-input>
+          <mat-hint>AAAA/MM/JJ – AAAA/MM/JJ</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker1></mat-date-range-picker>
+        </mat-form-field>
+
+        <br />
+
+        <div class="buttonHolder">
+          <!-- <button class="button-65" role="button" (click)="saveStage()">
+           تعديل التربص
+          </button>
+          <button mat-button class="dialog-button" [mat-dialog-close]="data" cdkFocusInitial>إلغاء</button> -->
+
+          
+        <button  mat-raised-button color="primary" (click)="saveStage()">متأكد</button>
+        <button mat-raised-button color="basic" [mat-dialog-close]="data" cdkFocusInitial>إلغاء</button>
+        </div>
+      </form>
+
+      </div>
+    </div>
+  </div>
+

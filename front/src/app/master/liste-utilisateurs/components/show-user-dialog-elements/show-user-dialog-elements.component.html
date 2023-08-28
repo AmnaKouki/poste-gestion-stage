@@ -1,0 +1,76 @@
+<div class="dialog" dir="rtl">
+  <h1 mat-dialog-title>بقية التفاصيل</h1>
+  <div mat-dialog-content>
+    
+    <div class="Tableau" >
+        <table style="width:100%; margin-top: 10pt;">
+            <tr>
+                <th>الرقم الآلي:</th>
+                <td class="right" >
+                  {{data.matricule}}
+                </td>
+              </tr>
+
+            <tr>
+              <th>الإسم بالعربية:</th>
+              <td class="right" >
+              {{data.nomArabe}} {{data.prenomArabe}}  
+              </td>
+            </tr>
+            <tr>
+              <th>الإسم بالفرنسية:</th>
+              <td class="right" >
+                {{data.nomFr}} {{data.prenomFr}} 
+              </td>
+            </tr>
+
+            <tr>
+                <th>رقم ب.ت.و:</th>
+                <td class="right" >
+                  {{data.cin}}
+                </td>
+              </tr>
+
+              <tr>
+                <th>الخطة:</th>
+                <td class="right" >
+                  {{data.fonction}}
+                </td>
+              </tr>
+
+              <tr>
+                <th>المقر الإداري:</th>
+                <td class="right" >
+                  {{data.siegeAdministratif}}
+                </td>
+              </tr>
+              <tr>
+                <th>الإدارة:</th>
+                <td class="right" >
+                  {{data.administration}}
+                </td>
+              </tr>
+              <tr>
+                <th>رقم الهاتف:</th>
+                <td class="right" >
+                  {{data.telephone}}
+                </td>
+              </tr>
+
+          </table>
+
+
+    <div mat-dialog-actions>
+      <button
+        
+        mat-flat-button 
+        color="primary"
+        class="dialog-button"
+        [mat-dialog-close]="data"
+        cdkFocusInitial
+      >
+        غلق
+      </button>
+    </div>
+  </div>
+</div>

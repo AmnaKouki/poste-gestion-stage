@@ -1,0 +1,37 @@
+<div class="dialog" dir="rtl">
+    <h1 mat-dialog-title>إضافة مقر تربص جديد</h1>
+    <div mat-dialog-content>
+    
+        <h2> يرجى تعمير الفراغات التالية</h2>
+        <form
+        class="form"
+        [formGroup]="formulaire"
+        (ngSubmit)="ajoutLieuStage()"
+      >
+          <mat-form-field>
+            <mat-label>المقر بالعربية</mat-label>
+            <input class="dialog-label" matInput formControlName="adresse">
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <mat-label>المقر بالفرنسية </mat-label>
+            <input class="dialog-label" matInput formControlName="adresseFr">
+          </mat-form-field>
+          <br>
+          
+          <mat-form-field>
+            <mat-label>رقم البريد</mat-label>
+            <input class="dialog-label" matInput formControlName="codePostal">
+          </mat-form-field>
+    
+          
+    <div mat-dialog-actions> 
+        <button mat-button class="dialog-button" submit>إضافة</button>
+        <button mat-button class="dialog-button" [mat-dialog-close]="data" cdkFocusInitial>إلغاء</button>
+        
+      </div>
+      </form>
+    </div>
+    
+    </div>
+    

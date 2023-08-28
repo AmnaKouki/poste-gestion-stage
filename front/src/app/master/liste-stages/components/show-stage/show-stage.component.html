@@ -1,0 +1,91 @@
+<div class="dialog" dir="rtl">
+    <h1 mat-dialog-title>بقية التفاصيل</h1>
+    <div mat-dialog-content>
+      
+      <div class="Tableau" >
+          <table style="width:100%; margin-top: 10pt;">
+  
+              <tr>
+                <th>الإسم بالعربية:</th>
+                <td class="right" >
+                {{data.stagiaire.nomArabe}} {{data.stagiaire.prenomArabe}}  
+                </td>
+              </tr>
+              <tr>
+                <th>إسم المؤطر</th>
+                <td class="right" >
+                  {{data.encadrant.nomArabe}} {{data.encadrant.prenomArabe}} 
+                </td>
+              </tr>
+  
+              <tr>
+                  <th>مدة التربص:</th>
+                  <td class="right" >
+                    {{data.stage.dateFin}} إلى  {{data.stage.dateDebut}}من 
+                  </td>
+                </tr>
+  
+                <tr>
+                  <th>نوع التربص:</th>
+                  <td class="right" >
+                    {{typeStage}}
+                  </td>
+                </tr>
+  
+             
+                <tr>
+                  <th>مكان التربص:</th>
+                  <td class="right" >
+                    {{data.lieuStage.adresse}}
+                  </td>
+                </tr>
+                
+                
+                <tr>
+                    <th>موضوع التربص:</th>
+                    <td class="right" >
+                      {{data.stage.objet}}
+                    </td>
+                  </tr>
+                  
+                  
+                <tr>
+                    <th>المعهد/ الكلية:</th>
+                    <td class="right" >
+                      {{data.stage.institutArabe}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>نوع المؤسسة:</th>
+                    <td class="right" >
+                      {{data.stage.typeInstitut}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>الإختصاص:</th>
+                    <td class="right" >
+                      {{data.stage.specialiteArabe}}
+                    </td>
+                  </tr>
+
+                  
+
+
+            </table>
+  
+  
+      <div mat-dialog-actions>
+        <button
+          
+          mat-flat-button 
+          color="primary"
+          class="dialog-button"
+          [mat-dialog-close]="data"
+          cdkFocusInitial
+        >
+          غلق
+        </button>
+      </div>
+    </div>
+  </div>
+  

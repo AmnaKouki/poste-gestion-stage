@@ -1,0 +1,141 @@
+<div class="listeStagiaires" dir="rtl">
+  <h1 class="page-title">قائمة المتربصين</h1>
+  
+  <button
+  class="dialog-button"
+  mat-raised-button
+  color="primary"
+  style="margin-right: 70px; display: flex"
+  (click)="addStage()"
+>
+  إضافة تربص
+</button>
+  <mat-form-field>
+    <mat-label>البحث</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input />
+  </mat-form-field>
+
+  <div
+    *ngIf="isLoading"
+    style="
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <ng-container *ngIf="!isLoading">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+        matSort
+      >
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+          <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="prenomArabe">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>الإسم</th>
+
+          <td mat-cell *matCellDef="let row">{{ row.prenomArabe }}</td>
+        </ng-container>
+        <ng-container matColumnDef="nomArabe">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>اللقب</th>
+          <td mat-cell *matCellDef="let row">{{ row.nomArabe }}</td>
+        </ng-container>
+        <ng-container matColumnDef="cin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ب.ت.و</th>
+          <td mat-cell *matCellDef="let row">{{ row.cin }}</td>
+        </ng-container>
+        <ng-container matColumnDef="dateNaissance">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            تاريخ الولادة
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.dateNaissance }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="telephone">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>الهاتف</th>
+          <td mat-cell *matCellDef="let row">{{ row.telephone }}</td>
+        </ng-container>
+        <ng-container matColumnDef="mail">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            البريد الإلكتروني
+          </th>
+          <td mat-cell *matCellDef="let row">{{ row.mail }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="adresse">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>العنوان</th>
+          <td mat-cell *matCellDef="let row">{{ row.adresse }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row">
+            <div style="display: flex" class="prevent-select">
+              <!-- <img
+                class="image cursor-pointer"
+                src="assets/info.png"
+                alt="edit"
+                style="display: flex"
+                (click)="showDetails(row)"
+              />
+              <p class="cursor-pointer" (click)="showDetails(row)">تفاصيل</p> -->
+
+              <img
+                class="image cursor-pointer"
+                src="assets/edit.png"
+                alt="edit"
+                style="display: flex"
+                (click)="openEditDialog(row)"
+              />
+              <p class="cursor-pointer" (click)="openEditDialog(row)">تعديل</p>
+              <!-- <button mat-button  >
+                  <img class="image" src="assets/edit.png" alt="edit"   style="display: flex;"/>
+                  <p class="action"  style="display: flex;">تعديل</p>
+                </button> -->
+
+              <img
+                src="assets/delete.png"
+                (click)="openDeleteDialog(row)"
+                class="image cursor-pointer"
+                alt="edit"
+              />
+              <p class="cursor-pointer" (click)="openDeleteDialog(row)">حـذف</p>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td
+            class="mat-cell"
+            colspan="4"
+            style="
+              font-family: 'Noto Sans Arabic', sans-serif;
+              font-size: 16px;
+              font-weight: 500;
+              padding-right: 15px;
+            "
+          >
+            غير موجود
+          </td>
+        </tr>
+      </table>
+    </ng-container>
+    <mat-paginator
+      [pageSize]="7"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
+  </div>
+</div>

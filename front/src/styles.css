@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&family=Tajawal:wght@200;500;900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@import url(assets/hot-toast.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  background-color: #d8d8d8;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+.page-title {
+  font-size: 30px !important;
+  font-weight: 600 !important;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+.mat-sort-header-content {
+  font-weight: 600 !important;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+
+.mat-mdc-cell  {
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+mat-label {
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+.mat-cell {
+  font-family: 'Noto Sans Arabic', sans-serif !important
+}
+
+.mdc-floating-label--float-above {
+  margin-top: 8px !important;
+}
+
+
+.mdc-dialog__content > *{
+  font-family: 'Noto Sans Arabic', sans-serif !important
+}
+
+.mdc-dialog__title {
+  font-family: 'Noto Sans Arabic', sans-serif !important 
+}
+
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

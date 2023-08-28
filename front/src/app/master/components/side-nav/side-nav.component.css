@@ -1,0 +1,28 @@
+.nav-item {
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+  @media only screen and (max-width: 1300px) {
+    padding: 25px 40px;
+  }
+  &:hover {
+     background-color: rgb(1, 38, 69); 
+    
+  }
+  span {
+    display: inline;
+    @media only screen and (max-width: 1300px) {
+      display: none;
+    }
+  }
+}
+fa-icon {
+  padding-left: 10px;
+}
+
+.poste-logo {
+
+  position: absolute;
+  bottom: 0;
+  
+}

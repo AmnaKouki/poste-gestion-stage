@@ -1,0 +1,64 @@
+.mat-mdc-header-cell ,mdc-data-table__header-cell ,cdk-header-cell {
+
+    
+  font-weight: 600 !important;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+
+table {
+    width: 70% !important;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+ .image {
+  width: 20px;
+    height: fit-content;
+  margin-left: 4px;
+ }
+ p {
+  margin-left: 13px;
+  font-size: 14px;
+ }
+ .action{
+  font-weight: 400;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  font-size: 13px;
+ }
+ .dialog-label{
+
+ font-weight: 400;
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  font-size: 16px;
+ }
+ .dialog{
+  width: 450px;
+ }
+
+ mdc-button mat-mdc-button mat-unthemed mat-mdc-button-base {
+  width: 70px;
+ }
+ .dialog-button{
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  font-family: 'Noto Sans Arabic';
+  font-size: 12px;
+  font-weight: 500;
+ }
+ .dialog-button2{
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+  font-family: 'Noto Sans Arabic';
+  font-size: 15px;
+  font-weight: 500;
+ }
+
+
+ .cursor-pointer {
+  cursor: pointer;
+ }

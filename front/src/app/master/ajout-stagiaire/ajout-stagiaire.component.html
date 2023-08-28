@@ -1,0 +1,70 @@
+<div class="intro" dir="rtl">
+  <h1 class="page-title">إضافة متربص</h1>
+  <p>لإضافة متربص جديد, يرجى تعمير الفراغات التالية </p>
+  <br>
+</div>
+<div class="formulaire" dir="rtl">
+  <form class="form" [formGroup]="formulaire" (ngSubmit)="postMethode()">
+    <mat-form-field class="input">
+      <mat-label>الإسم</mat-label>
+      <input matInput formControlName="nomArabe" />
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>اللقب</mat-label>
+      <input matInput formControlName="prenomArabe" />
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>البريد الإلكتروني</mat-label>
+      <input
+        type="email"
+        matInput
+        formControlName="mail"
+        [errorStateMatcher]="matcher"
+        placeholder="Ex. nom@example.com"
+      />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="input">
+      <mat-label>Prénom</mat-label>
+      <input matInput formControlName="prenomFr" />
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="nomFr" [errorStateMatcher]="matcher" />
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>ب.ت.و</mat-label>
+      <input matInput formControlName="cin" />
+      <mat-error *ngIf="formulaire.controls['cin'].hasError('pattern')">الرجاء التثبت من صحة الأرقام</mat-error>
+    </mat-form-field>
+
+    <br />
+    <mat-form-field class="input"  style="width: 25% !important;">
+      <mat-label>تاريخ الولادة</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateNaissance" >
+      <mat-hint>AAAA-MM-JJ</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>رقم الهاتف</mat-label>
+      <input  matInput formControlName="telephone" />
+      <mat-error *ngIf="formulaire.controls['telephone'].hasError('pattern')">الرجاء التثبت من صحة الأرقام</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+      <mat-label>العنوان</mat-label>
+      <input matInput formControlName="adresse">
+    </mat-form-field>
+
+    <div class="buttonHolder">
+      <button class="button-65" role="button">إضافة المتربص</button>
+    </div>
+  </form>
+  
+</div>

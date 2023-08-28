@@ -1,0 +1,91 @@
+<div class="dialog" dir="rtl">
+    <h1 mat-dialog-title>تعديل معلومات المستعمل</h1>
+    <div mat-dialog-content>
+    
+        <h2>يرجى تعمير الفراغات</h2>
+        <form
+        class="form"
+        [formGroup]="addFormulaire"
+      >
+          <mat-form-field>
+            <mat-label>الرقم الآلي</mat-label>
+            <input class="dialog-label" matInput formControlName="matricule">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>كلمة المرور</mat-label>
+            <input type="password" class="dialog-label" matInput formControlName="password" >
+          </mat-form-field>
+          
+         
+          <br>
+          <mat-form-field>
+            <mat-label>الإسم بالعربية</mat-label>
+            <input class="dialog-label" matInput formControlName="prenomArabe">
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>اللقب بالعربية</mat-label>
+            <input class="dialog-label" matInput formControlName="nomArabe">
+          </mat-form-field>
+          <br>
+          
+          <mat-form-field>
+            <mat-label>الإسم بالفرنسية</mat-label>
+            <input class="dialog-label" matInput formControlName="prenomFr">
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>اللقب بالفرنسية</mat-label>
+            <input class="dialog-label" matInput formControlName="nomFr">
+          </mat-form-field>
+          <br>
+          
+          <mat-form-field>
+            <mat-label>رقم ب.ت.و:</mat-label>
+            <input class="dialog-label" matInput formControlName="cin">
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>رقم الهاتف</mat-label>
+            <input class="dialog-label" matInput formControlName="telephone">
+          </mat-form-field>
+          <br>
+
+          <mat-form-field>
+            <mat-label>الخطة</mat-label>
+            <input class="dialog-label" matInput formControlName="fonction">
+          </mat-form-field>
+          
+          
+          <mat-form-field>
+            <mat-label>المقر الإداري</mat-label>
+            <input class="dialog-label" matInput formControlName="siegeAdministratif">
+          </mat-form-field>
+          <br>
+          <mat-form-field class="large">
+            <mat-label>الإدارة</mat-label>
+            <input class="dialog-label" matInput formControlName="administration">
+          </mat-form-field>
+          <br>
+          
+        
+          
+نوع المستخدم : 
+          <mat-chip-listbox formControlName="role">
+            <mat-chip-option value="user">عادي</mat-chip-option>
+            <mat-chip-option value="admin" color="warn">مسؤول</mat-chip-option>
+          </mat-chip-listbox>
+
+    
+          
+    <div mat-dialog-actions> 
+        <button mat-button class="dialog-button" (click)="addUser()">تحديث</button>
+        <button mat-button color="warn" class="dialog-button" [mat-dialog-close]="data" cdkFocusInitial>إلغاء</button>
+        
+      </div>
+      </form>
+    </div>
+    
+    </div>
+    

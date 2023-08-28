@@ -1,0 +1,47 @@
+<div class="nav-items">
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/home')">
+    <span> لوحة التحكم</span>
+    <fa-icon [icon]="faChart"></fa-icon>
+  </div>
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/liste-stagiaires')">
+    <span>قائمة المتربصين</span>
+    <fa-icon [icon]="faUsers"></fa-icon>
+  </div>
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/liste-stages')">
+    <span>قائمة التربّصات</span>
+    <fa-icon [icon]="faUsers"></fa-icon>
+  </div>
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/ajout-stagiaire')">
+    <span>إضافة متربّص</span>
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </div>
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/ajout-stage')">
+    <span>إضافة تربّص</span>
+    <fa-icon [icon]="faFileCirclePlaus"></fa-icon>
+   </div>
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="goTo('./app/update-stagiaire')">
+    <span>تحيين</span>
+    <fa-icon [icon]="faClockRotate"></fa-icon>
+  </div>
+  <div *ngIf="authService.isAdminUser()|| authService.isRegularUser() " class="nav-item" (click)="goTo('./app/lieux-de-stage')">
+    <span>قائمة المقرّات</span>
+    <fa-icon [icon]="faLocationDot"></fa-icon>
+    
+  </div>
+
+  <div *ngIf="authService.isAdminUser() " class="nav-item" (click)="goTo('./app/liste-utilisateurs')">
+    <span>قائمة المستعملين</span>
+    <fa-icon [icon]="faUsers"></fa-icon>
+  </div>
+
+  <div *ngIf="authService.isAdminUser() || authService.isRegularUser()" class="nav-item" (click)="logout()">
+    <span>تسجيل الخروج</span>
+    <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+    
+  </div>
+ 
+  <br>
+  <div class="poste-logo">
+    <img src="/assets/logo.jpg" alt="image">
+  </div>
+</div>

@@ -1,0 +1,11 @@
+*{
+    font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+
+mat-form-field{
+    margin-left: 20px;
+}
+.large{
+  width: 96%;
+
+}

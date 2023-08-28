@@ -1,0 +1,21 @@
+*{
+    font-family: 'Noto Sans Arabic', sans-serif !important;
+}
+.Tableau{
+    min-width: 400px;
+    border: 1px;
+    
+  
+  font-family: 'Noto Sans Arabic', sans-serif !important;
+    
+}
+
+th {
+    font-weight: 600 !important;
+    text-align: right;
+    padding-bottom: 5px;
+    width: 140px;   
+}
+td{
+    font-weight: 400 !important;
+}
