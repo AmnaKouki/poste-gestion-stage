@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { faFileClipboard } from '@fortawesome/free-regular-svg-icons';
 import {
   faCoffee,
   faChartLine,
@@ -11,6 +12,8 @@ import {
   faLocationDot,
   faArrowRightFromBracket,
   faPlus,
+  faClipboardList,
+  faFile,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthentificationService } from 'src/app/services/authentification.service';
@@ -35,6 +38,7 @@ export class SideNavComponent {
   faLocationDot= faLocationDot;
   faArrowRightFromBracket=faArrowRightFromBracket;
   faPlus= faPlus;
+  faList = faFileClipboard;
 
 
   logout() {

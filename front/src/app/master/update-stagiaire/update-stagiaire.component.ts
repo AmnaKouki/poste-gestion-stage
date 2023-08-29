@@ -64,7 +64,7 @@ export class UpdateStagiaireComponent {
         }
       );
   }
-
+ 
   public updateMethode() {
     let body = this.updateFormulaire.value;
     this.updateFormulaire.value.dateNaissance = moment(

@@ -89,7 +89,9 @@
                 style="display: flex"
                 (click)="downloadPDF(row)"
               />
-              <p class="cursor-pointer" (click)="downloadPDF(row)">إستخراج التقرير</p>
+              <p class="cursor-pointer" (click)="downloadPDF(row)">
+                إستخراج التقرير
+              </p>
 
               <img
                 class="image cursor-pointer"
@@ -105,12 +107,19 @@
                 </button> -->
 
               <img
+                *ngIf="authService.isAdminUser()"
                 src="assets/delete.png"
                 (click)="openDeleteDialog(row)"
                 class="image cursor-pointer"
                 alt="edit"
               />
-              <p class="cursor-pointer" (click)="openDeleteDialog(row)">حـذف</p>
+              <p
+                *ngIf="authService.isAdminUser()"
+                class="cursor-pointer"
+                (click)="openDeleteDialog(row)"
+              >
+                حـذف
+              </p>
             </div>
           </td>
         </ng-container>
@@ -141,7 +150,14 @@
     ></mat-paginator>
   </div>
 
-  <div style="display: none;">
-    <qrcode #qr [width]="200" [elementType]="'img'"  [qrdata]="qrCodeValue" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+  <div style="display: none">
+    <qrcode
+      #qr
+      [width]="200"
+      [elementType]="'img'"
+      [qrdata]="qrCodeValue"
+      [width]="256"
+      [errorCorrectionLevel]="'M'"
+    ></qrcode>
   </div>
 </div>

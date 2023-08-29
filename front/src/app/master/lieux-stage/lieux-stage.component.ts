@@ -35,7 +35,8 @@ export class LieuxStageComponent {
 
   displayedColumns: string[] = ['adresse', 'adresseFr', 'codePostal', 'action'];
 
-  constructor(private http: HttpClient, public dialog: MatDialog, public authService: AuthentificationService) {}
+  constructor(private http: HttpClient,
+     public dialog: MatDialog, public authService: AuthentificationService) {}
 
   ngOnInit(): void {
     this.getListeDesLieuxDeStage();

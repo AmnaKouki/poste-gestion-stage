@@ -8,17 +8,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditListeStagiaireElementsComponent } from './components/edit-liste-stagiaire-elements/edit-liste-stagiaire-elements.component';
 import { DeleteListeStagiaireElementsComponent } from './components/delete-liste-stagiaire-elements/delete-liste-stagiaire-elements.component';
 import { ShowStagiaiareDetailsComponent } from './components/show-stagiaiare-details/show-stagiaiare-details.component';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 export interface Stagiaire {
   id: string;
-  nomArabe: string;
   prenomArabe: string;
+  nomArabe: string;
+  nomFr: string;
+  prenomFr: string;
   cin: string;
+  mail: string;
   dateNaissance: string;
   adresse: string;
   telephone: string;
-  mail: string;
 }
+
 @Component({
   selector: 'app-liste-stagiaires',
   templateUrl: './liste-stagiaires.component.html',
@@ -43,7 +47,11 @@ export class ListeStagiairesComponent {
     'action',
   ];
 
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+  constructor(
+    private http: HttpClient,
+    public authService: AuthentificationService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.getListeStagiaires();
@@ -75,12 +83,10 @@ export class ListeStagiairesComponent {
     });
   }
 
-  
- 
-  showDetails(row: any){
+  showDetails(row: any) {
     let deleteDialogRef = this.dialog.open(ShowStagiaiareDetailsComponent, {
       autoFocus: false,
-      data: { 
+      data: {
         // nomArabe:row.nomArabe,
         // prenomArabe: row.prenomArabe,
         // nomFr: row.nomFr,
@@ -93,51 +99,48 @@ export class ListeStagiairesComponent {
         // fonction: row.fonction
       },
     });
-
   }
 
-
-  addStage(){
-    
-      // this.dialog.open(EditDialogElements);
-     let ajoutDialogRef = this.dialog.open(AddListeStagiaireElementsComponent, { autoFocus: false,});
-     ajoutDialogRef.afterClosed().subscribe((res) => {
-        if (res.event === 'add') {
-          // refresh
-          this.ngOnInit();
-        }
-      })
-  
+  addStage() {
+    // this.dialog.open(EditDialogElements);
+    let ajoutDialogRef = this.dialog.open(AddListeStagiaireElementsComponent, {
+      autoFocus: false,
+    });
+    ajoutDialogRef.afterClosed().subscribe((res) => {
+      if (res.event === 'add') {
+        // refresh
+        this.ngOnInit();
+      }
+    });
   }
-
 
   openEditDialog(row: any) {
     // this.dialog.open(EditDialogElements);
-   let editDialogRef = this.dialog.open(EditListeStagiaireElementsComponent, {
-    autoFocus: false,
-      data: row
+    let editDialogRef = this.dialog.open(EditListeStagiaireElementsComponent, {
+      autoFocus: false,
+      data: row,
     });
     editDialogRef.afterClosed().subscribe((res) => {
       if (res.event === 'edit') {
         // refresh
         this.ngOnInit();
       }
-    })
-}
-openDeleteDialog(row: any) {
-  let deleteDialogRef = this.dialog.open(DeleteListeStagiaireElementsComponent, {
-    autoFocus: false,
-    data: row
-  });
-  deleteDialogRef.afterClosed().subscribe(res => {
-    if (res.event === 'delete') {
-      // refresh
-      this.ngOnInit();
-    }
-    else{
-      
-    }
-  })
-}
-
+    });
+  }
+  openDeleteDialog(row: any) {
+    let deleteDialogRef = this.dialog.open(
+      DeleteListeStagiaireElementsComponent,
+      {
+        autoFocus: false,
+        data: row,
+      }
+    );
+    deleteDialogRef.afterClosed().subscribe((res) => {
+      if (res.event === 'delete') {
+        // refresh
+        this.ngOnInit();
+      } else {
+      }
+    });
+  }
 }

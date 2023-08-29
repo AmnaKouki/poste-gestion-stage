@@ -1,1 +1,99 @@
-<p>edit-liste-stagiaire-elements works!</p>
+<div class="dialog" dir="rtl">
+    <h1 class="page-title">تحيين متربص</h1>
+  
+      <div class="update-formulaire" mat-dialog-content>
+        <h2>يرجى تعمير الفراغات</h2>
+
+        
+        <form
+          class="form"
+          [formGroup]="updateFormulaire"
+          (ngSubmit)="updateMethode()"
+        >
+          <mat-form-field class="input">
+            <mat-label>الإسم</mat-label>
+            <input matInput formControlName="prenomArabe" />
+          </mat-form-field>
+          <mat-form-field class="input">
+            <mat-label>اللقب</mat-label>
+            <input matInput formControlName="nomArabe" value="hidsd" />
+          </mat-form-field>
+  
+          <mat-form-field class="input">
+            <mat-label>البريد الإلكتروني</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="mail"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. nom@example.com"
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field class="input">
+            <mat-label>Prénom</mat-label>
+            <input matInput formControlName="prenomFr" />
+          </mat-form-field>
+  
+          <mat-form-field class="input">
+            <mat-label>Nom</mat-label>
+            <input
+              matInput
+              formControlName="nomFr"
+              [errorStateMatcher]="matcher"
+            />
+          </mat-form-field>
+  
+          <mat-form-field class="input">
+            <mat-label>ب.ت.و</mat-label>
+            <input type="number" matInput formControlName="cin" />
+          </mat-form-field>
+  
+          <br />
+  
+          <mat-form-field class="input" style="width: 25% !important">
+            <mat-label>تاريخ الولادة</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="dateNaissance"
+            />
+            <!-- <mat-hint>AAAA/MM/JJ</mat-hint> -->
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+  
+          <!-- 
+          <mat-form-field class="input">
+            <mat-label>تاريخ الولادة</mat-label>
+            <input type="date" matInput formControlName="dateNaissance" />
+            <input matInput [matDatepicker]="picker" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> -->
+  
+          <mat-form-field class="input">
+            <mat-label>رقم الهاتف</mat-label>
+            <input type="number" matInput formControlName="telephone" />
+          </mat-form-field>
+  
+          <mat-form-field class="input">
+            <mat-label>العنوان</mat-label>
+            <input matInput formControlName="adresse" />
+          </mat-form-field>
+  
+          <div class="buttonHolder">
+            <button class="button-65" role="button">تحديث</button>
+          </div>
+        </form>
+      </div>
+    
+  </div>
+  

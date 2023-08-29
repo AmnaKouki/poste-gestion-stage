@@ -22,7 +22,7 @@ import { EditDialogElements } from "../edit-dialog-elements/edit-dialog-elements
       private toastService: HotToastService
     ) {
       this.data = data;
-      console.log(this.data.adresse);
+      
     }
   
     onNoClick(): void {
@@ -52,4 +52,6 @@ import { EditDialogElements } from "../edit-dialog-elements/edit-dialog-elements
         );
     }
   }
+  
+
   

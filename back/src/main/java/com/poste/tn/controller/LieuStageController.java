@@ -56,7 +56,7 @@ public class LieuStageController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/lieu-de-stage/delete/{id}")
     @CrossOrigin
     public ResponseEntity<LieuStage> deleteElement(@PathVariable("id") String id) {

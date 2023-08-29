@@ -12,6 +12,7 @@ import { EditStageElementsComponent } from './components/edit-stage-elements/edi
 import { AddStageElementsComponent } from './components/add-stage-elements/add-stage-elements.component';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 const pdfMake = require('pdfmake/build/pdfmake.js');
 
@@ -105,7 +106,8 @@ export class ListeStagesComponent {
   constructor(
     private http: HttpClient,
     public dialog: MatDialog,
-    private toastService: HotToastService
+    private toastService: HotToastService,
+    public authService: AuthentificationService
   ) {}
 
   ngOnInit(): void {

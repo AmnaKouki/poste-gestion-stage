@@ -62,7 +62,7 @@
         </ng-container>
 
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>لوحة تحكم</th>
+          <th mat-header-cell *matHeaderCellDef> </th>
           <td mat-cell *matCellDef="let row">
             <div style="display: flex">
               <img
@@ -78,13 +78,13 @@
                 <p class="action"  style="display: flex;">تعديل</p>
               </button> -->
 
-              <img
+              <img *ngIf="authService.isAdminUser() "
                 src="assets/delete.png"
                 (click)="openDeleteDialog(row)"
                 class="image cursor-pointer"
                 alt="edit"
               />
-              <p class="cursor-pointer" (click)="openDeleteDialog(row)">حـذف</p>
+              <p *ngIf="authService.isAdminUser() " class="cursor-pointer" (click)="openDeleteDialog(row)">حـذف</p>
             </div>
           </td>
         </ng-container>

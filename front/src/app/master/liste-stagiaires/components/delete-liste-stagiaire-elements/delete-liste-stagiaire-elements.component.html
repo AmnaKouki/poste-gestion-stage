@@ -1,1 +1,17 @@
-<p>delete-liste-stagiaire-elements works!</p>
+<div class="dialog" dir="rtl">
+    <h1 mat-dialog-title>حذف مقر التربص</h1>
+    <div mat-dialog-content>
+    
+        <h2>سيتم حذف هذا المتربص. هل أنت متأكد ؟</h2>
+     
+          
+    <div mat-dialog-actions> 
+        <button mat-button class="dialog-button" (click)="deleteStagiaire()">متأكد</button>
+        <button mat-button class="dialog-button" [mat-dialog-close]="data" cdkFocusInitial>إلغاء</button>
+        
+      </div>
+      
+    </div>
+    
+    </div>
+    

@@ -44,7 +44,7 @@ public class UtilisateurController {
     @Autowired
     RoleRepository roleRepository;
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping(value = "/user/find_all")
     //CORS is a security mechanism implemented by web browsers to restrict web page scripts from making
     // requests to a different domain than the one that served the web page.

@@ -7,6 +7,7 @@ import com.poste.tn.model.Stagiaire;
 import com.poste.tn.model.Utilisateur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -92,7 +93,8 @@ public class StagiaireController {
         return repository.save(stagiaire);
     }
 */
-    @DeleteMapping("/stagiaire/stage/delete/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @DeleteMapping("/stagiaire/delete/{id}")
     @CrossOrigin
     public ResponseEntity<Stagiaire> deleteElement(@PathVariable("id") String id) {
         Optional<Stagiaire> optionalStagiaire = repository.findById(id);

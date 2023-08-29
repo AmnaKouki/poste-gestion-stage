@@ -11,6 +11,7 @@ import com.poste.tn.model.Utilisateur;
 import com.poste.tn.payload.response.StageAllResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -114,6 +115,7 @@ public class StageController {
         }
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/stage/delete/{id}")
     @CrossOrigin
     public ResponseEntity<Stage> deleteElement(@PathVariable("id") String id) {

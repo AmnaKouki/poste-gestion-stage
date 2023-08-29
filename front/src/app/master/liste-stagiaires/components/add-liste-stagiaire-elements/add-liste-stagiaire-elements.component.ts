@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { HotToastService } from '@ngneat/hot-toast';
 
 declare var require: any;
@@ -28,6 +29,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AddListeStagiaireElementsComponent {
   constructor(
+    public dialogRef: MatDialogRef<AddListeStagiaireElementsComponent>,
     private http: HttpClient,
     private toastService: HotToastService
   ) {}
@@ -58,7 +60,7 @@ export class AddListeStagiaireElementsComponent {
         .get('http://localhost:9000/stagiaire/find-by-cin/' + cin)
         .subscribe(
           (data) => {
-            this.toastService.error('هذا المتربص مسجل مسبقا');
+            this.toastService.error('رقم ب.ت.و مسجل مسبقا. الرجاء التثبت ');
           },
           (err) => {
             this.http
@@ -69,12 +71,18 @@ export class AddListeStagiaireElementsComponent {
                 ////////////////////////////////////
               });
             this.toastService.success('تمت الإضافة بنجاح');
-            // this.passCinToStage();
+            this.dialogRef.close({
+              event: 'add',
+            });
+
+            this.ngOnchange();
+            
           }
         );
     }
-  }
 
+  }
+ngOnchange() {}
   
   nomFr = new FormControl('', [Validators.required]);
   mail = new FormControl('', [Validators.required, Validators.email]);
